@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$_SESSION['x'] = 'oi, sou valor de sessao';
 
 print_r($_SESSION);
 
@@ -25,8 +26,9 @@ foreach ($usuarios_app as $indice => $user) {
     };
 
     if ($usuario_autenticado) {
-        echo ' '; //header('Location: home.php');
+        $_SESSION['autenticado'] = 'sim'; //header('Location: home.php');
     } else {
+        $_SESSION['autenticado'] = 'nao';
         header('Location: index.php?login=erro');
     };
 };

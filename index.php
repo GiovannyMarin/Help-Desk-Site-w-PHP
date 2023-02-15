@@ -51,6 +51,14 @@
                   Usuario ou senha invalido(s)
                 </div>
               <?php }; ?>
+              <?php
+
+              if (isset($_GET['login']) && $_GET['login'] == 'erro2') { // verifica se o indice de um array esta setado
+              ?>
+                <div class='text-danger'>
+                  Faça login primeiro antes de tentar acessar!
+                </div>
+              <?php }; ?>
 
               <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
 
