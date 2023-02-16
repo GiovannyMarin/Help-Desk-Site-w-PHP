@@ -1,8 +1,6 @@
 <?php
 
-echo '<pre>';
-print_r($_POST);
-echo '<pre>';
+session_start();
 
 //abrindo um arquivo de texto
 //    nome arquivo  parametros de decidir oq fazer com o arquivo
@@ -16,7 +14,7 @@ $descricao = str_replace('#', '-', $_POST['descricao']);
 
 //podemos usar implode
 
-$texto = $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
+$texto = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
 // PHP_EOL = end of life (qubera a linha no txt)
 
 #ABRINDO ARQUIVO, EDITANDO E FECHANDO
