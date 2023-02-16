@@ -10,18 +10,19 @@ $usuario_autenticado = false;
 $usuario_id = null;
 $usuario_perfil_id = null;
 
+// array criado para checar se o 'perfil-id' eh igual a perfis
 $perfis = array(1 => 'Administrativo', 2 => 'Usuario');
 
 //usuarios do sistema
 //de modo hardcore apenas para entender a logica
 $usuarios_app = array(
     array('id' => 1, 'email' => 'adm@teste.com', 'senha' => '1234', 'perfil_id' => 1),
-    array('id' => 2, 'email' => 'gio@teste.com', 'senha' => '1234', 'perfil_id' => 1),
+    array('id' => 2, 'email' => 'gio@teste.com', 'senha' => '1234', 'perfil_id' => 2),
     array('id' => 3, 'email' => 'joao@teste.com', 'senha' => '1234', 'perfil_id' => 2),
     array('id' => 4, 'email' => 'du@teste.com', 'senha' => '1234', 'perfil_id' => 2),
 );
 
-foreach ($usuarios_app as $indice => $user) {
+foreach ($usuarios_app as $user) {
     /*echo '<br>';
     echo 'Usuario app: ' . $user['email'] . '/' . $user['senha'];
     echo '<br>';
@@ -30,7 +31,7 @@ foreach ($usuarios_app as $indice => $user) {
     if ($user['email'] == $_POST['email'] && $user['senha'] == $_POST['senha']) {
         $usuario_autenticado = true;
         $usuario_id = $user['id'];
-        $usuario_perfil_id = $user['perfil_id'];
+        $usuario_perfil_id = $user['perfil_id']; // caso seja adm, isso sera 1
     };
 
     if ($usuario_autenticado) {
